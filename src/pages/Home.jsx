@@ -4,12 +4,7 @@ import Search from "../components/Search";
 import RecipeList from "../components/RecipeList";
 import { useDebounce } from "react-use";
 import { Link } from "react-router";
-
-const ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
-const PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
-const DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
-const COLLECTION_ID = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
-
+import { SmoothCursor } from "../components/ui/smooth-cursor";
 
 const Home = () => {
     const [searchRecipe, setSearchRecipe] = useState('');
@@ -42,10 +37,11 @@ const Home = () => {
 
     return (
         <section className="md:px-10 px-4 bg=[#f6f6f6]">
+            <SmoothCursor />
             <div className="flex justify-between my-10">
                 <h1 className="inter md:text-4xl text-xl font-semibold">Recipe Search</h1>
 
-                <Link to={'/favorites'} className="flex gap-2 items-center border border-gray-200 px-3 py-2 rounded inter shadow-lg">
+                <Link to={'/favorites'} className="flex cursor-none gap-2 items-center border border-gray-200 px-3 py-2 rounded inter shadow-lg">
                     <FaHeart />
                     Favorites
                 </Link>

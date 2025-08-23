@@ -16,7 +16,7 @@ const RecipeCard = ({recipe}) => {
                 >{recipe.strMeal}</h1>
                 <Link 
                 to={`/recipe/${recipe.idMeal}`}
-                className='bg-gray-700 px-3 py-2 rounded inter text-white'>
+                className='bg-gray-700 px-3 py-2 cursor-none rounded inter text-white'>
                     View Recipe
                 </Link>
             </div>

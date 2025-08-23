@@ -5,7 +5,8 @@ import Ingredients from "../components/Ingredients";
 import {ClockLoader} from 'react-spinners';
 import { FaHeart } from "react-icons/fa";
 import { addFavorites, favoritesList } from "../appwrite";
-import {ToastContainer, toast} from 'react-toastify';
+import { toast } from "sonner";
+import { Toaster } from "../components/ui/sonner";
 
 const Recipe = () => {
 
@@ -46,7 +47,7 @@ const Recipe = () => {
         if(status){
             toast.success("Added to Favorites");
         } else {
-            toast.info("Removed to Favorites");
+            toast.success("Removed to Favorites");
         }
     }
 
@@ -70,7 +71,7 @@ const Recipe = () => {
             ) : recipeDetails.length > 0 && (
                 recipeDetails.map((recipe) => (
                     <div key={recipe.idMeal} className="md:px-14 px-8 pb-4">
-                        <ToastContainer />
+                        <Toaster />
                         <div className="relative flex px-4 py-2 flex-wrap gap-x-10 rounded border border-gray-200 shadow-lg shadow-gray-100"> 
                             <img 
                             className="md:w-1/2 md:ml-10"
