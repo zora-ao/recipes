@@ -11,7 +11,7 @@ const router = createBrowserRouter(
       <Route path="/favorites" element={<Favorites />} />
     </>
   ), {
-    basename: "/recipes"
+    basename: "/"
   }
 )
 
