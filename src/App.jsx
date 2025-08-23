@@ -10,7 +10,9 @@ const router = createBrowserRouter(
       <Route path="/recipe/:id" element={< Recipe/>} />
       <Route path="/favorites" element={<Favorites />} />
     </>
-  )
+  ), {
+    basename: "/recipes"
+  }
 )
 
 const App = () => {
