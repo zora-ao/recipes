@@ -72,14 +72,14 @@ const Recipe = () => {
                 recipeDetails.map((recipe) => (
                     <div key={recipe.idMeal} className="md:px-14 px-8 pb-4">
                         <Toaster />
-                        <div className="relative flex px-4 py-2 flex-wrap gap-x-10 rounded border border-gray-200 shadow-lg shadow-gray-100"> 
+                        <div className="relative flex px-4 py-2 gap-x-10 rounded border border-gray-200 shadow-lg shadow-gray-100"> 
                             <img 
                             className="md:w-1/2 md:ml-10"
                             src={recipe.strMealThumb} 
                             alt={recipe.idMeal} />
 
                             <div className="">
-                                <h1 className="playfair text-4xl font-bold my-4">{recipe.strMeal}</h1>
+                                <h1 className="playfair text-4xl font-bold my-4 w-2/3">{recipe.strMeal}</h1>
                                 <h1 className="text-2xl playfair font-bold mt-4">Ingredients</h1>
                                 <hr className="text-red-500 w-2/3 border mb-4" />
                                 <Ingredients recipe={recipe} />

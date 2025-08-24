@@ -4,14 +4,14 @@ const Search = ({searchRecipe, setSearchRecipe}) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        const val = e.target.value.trim();
+        const val = e.target.value;
 
         setSearchRecipe(val);
     }
 
     return (
-        <form onSubmit={handleSearch} className='bg-gray-200 rounded py-2 flex justify-between items-center gap-x-3 px-10'>
-            <FaSearch />
+        <form onSubmit={handleSearch} className='bg-gray-200 rounded py-2 flex justify-between items-center gap-x-3 md:px-10 px-4'>
+            <FaSearch className="text-xl" />
             <input 
             type="text" 
             value={searchRecipe}

@@ -5,14 +5,27 @@ import RecipeList from "../components/RecipeList";
 import { useDebounce } from "react-use";
 import { Link } from "react-router";
 import { SmoothCursor } from "../components/ui/smooth-cursor";
+import TopSearch from "../components/TopSearch";
+import { topSearch, mostSearch } from "../appwrite"
 
 const Home = () => {
     const [searchRecipe, setSearchRecipe] = useState('');
+    const [mostSearchDish, setMostSearchDish] = useState([]);
     const [debounceSearch, setDebounceSearch] = useState('');
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useDebounce(() => setDebounceSearch(searchRecipe), 1000, [searchRecipe]);
+
+    const fetchMostSearch = async() => {
+        try {
+            const data = await topSearch();
+
+            setMostSearchDish(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const fetchRecipes = async(query = '') => {
         setLoading(true);
@@ -21,6 +34,10 @@ const Home = () => {
             const data = await res.json();
 
             setRecipes(data.meals);
+
+            if(query && data.meals.length > 0){
+                await mostSearch(data.meals[0])
+            }
 
         } catch (error) {
             console.error(error)
@@ -33,7 +50,9 @@ const Home = () => {
         fetchRecipes(searchRecipe);
     }, [debounceSearch]);
 
-    console.log(recipes)
+    useEffect(() => {
+        fetchMostSearch();
+    }, [])
 
     return (
         <section className="md:px-10 px-4 bg=[#f6f6f6]">
@@ -49,7 +68,18 @@ const Home = () => {
 
             <Search searchRecipe={searchRecipe} setSearchRecipe={setSearchRecipe} />
 
-            <RecipeList loading={loading} recipes={recipes} />
+            <div className="">
+                <h1 className="text-2xl inter mt-4">Most Search Dishes</h1>
+                <hr className="border text-red-500 mb-4 w-[250px]" />
+                <TopSearch mostSearchDish={mostSearchDish} />
+                <hr className="border mt-4 text-gray-300" />
+            </div>
+
+            <div>
+                <h1 className="text-2xl inter mt-4">Featured Dishes</h1>
+                <hr className="border text-red-500 mb-4 w-[250px]" />
+                <RecipeList loading={loading} recipes={recipes} />
+            </div>
         </section>
     )
 }
