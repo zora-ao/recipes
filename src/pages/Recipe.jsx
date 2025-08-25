@@ -72,7 +72,7 @@ const Recipe = () => {
                 recipeDetails.map((recipe) => (
                     <div key={recipe.idMeal} className="md:px-14 px-8 pb-4">
                         <Toaster />
-                        <div className="relative flex px-4 py-2 gap-x-10 rounded border border-gray-200 shadow-lg shadow-gray-100"> 
+                        <div className="relative flex flex-wrap px-4 py-2 gap-x-10 rounded border border-gray-200 shadow-lg shadow-gray-100"> 
                             <img 
                             className="md:w-1/2 md:ml-10"
                             src={recipe.strMealThumb} 

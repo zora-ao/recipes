@@ -7,7 +7,7 @@ const TopSearch = ({mostSearchDish}) => {
         <div className="flex justify-evenly gap-x-3 overflow-x-auto">
             {mostSearchDish.map((recipe, index) => (
                 <motion.div
-                {...fadeSteps(0.5, (index + 1) / 2)}
+                {...fadeSteps(0.5, (index + 1) / 3.5)}
                 key={recipe.meal_id} 
                 className="text-center min-w-[200px]">
                     <img 
