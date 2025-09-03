@@ -4,7 +4,7 @@ import { fadeSteps } from "./animation/animate";
 const TopSearch = ({mostSearchDish}) => {
 
     return (
-        <div className="flex justify-evenly gap-x-3 overflow-x-auto">
+        <div className="flex justify-evenly gap-x-3 overflow-x-scroll">
             {mostSearchDish.map((recipe, index) => (
                 <motion.div
                 {...fadeSteps(0.5, (index + 1) / 3.5)}
