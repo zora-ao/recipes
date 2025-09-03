@@ -55,7 +55,7 @@ const Home = () => {
     }, [])
 
     return (
-        <section className="md:px-10 px-4 bg=[#f6f6f6]">
+        <section className="relative md:px-10 px-4 bg=[#f6f6f6]">
             <SmoothCursor />
             <div className="flex justify-between my-10">
                 <h1 className="inter md:text-4xl text-xl font-semibold">Recipe Search</h1>
