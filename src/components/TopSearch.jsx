@@ -9,7 +9,7 @@ const TopSearch = ({mostSearchDish}) => {
                 <motion.div
                 {...fadeSteps(0.5, (index + 1) / 3.5)}
                 key={recipe.meal_id} 
-                className="text-center min-w-[200px]">
+                className="text-center md:min-w-[200px]">
                     <img 
                     className="w-[200px] h-[200px] rounded"
                     src={recipe.meal_thumb}
